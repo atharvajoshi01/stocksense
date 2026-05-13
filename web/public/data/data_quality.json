@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "n_findings": 8,
+  "n_failed": 0,
+  "findings": [
+    {
+      "name": "schema:required_columns",
+      "passed": true,
+      "detail": "All required columns present",
+      "offending_rows": 0
+    },
+    {
+      "name": "nulls:critical",
+      "passed": true,
+      "detail": "No nulls in critical columns",
+      "offending_rows": 0
+    },
+    {
+      "name": "segment:domain",
+      "passed": true,
+      "detail": "All segments in domain",
+      "offending_rows": 0
+    },
+    {
+      "name": "range:units>=0",
+      "passed": true,
+      "detail": "No negative values",
+      "offending_rows": 0
+    },
+    {
+      "name": "range:revenue>=0",
+      "passed": true,
+      "detail": "No negative values",
+      "offending_rows": 0
+    },
+    {
+      "name": "grain:unique",
+      "passed": true,
+      "detail": "Grain is unique",
+      "offending_rows": 0
+    },
+    {
+      "name": "date:continuity",
+      "passed": true,
+      "detail": "No calendar gaps",
+      "offending_rows": 0
+    },
+    {
+      "name": "revenue:consistency",
+      "passed": true,
+      "detail": "Revenue consistent with units",
+      "offending_rows": 0
+    }
+  ]
+}

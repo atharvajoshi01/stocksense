@@ -1,0 +1,862 @@
+[
+  {
+    "sku_id": "CTR-32OZ",
+    "segment": "food_service",
+    "order_date": "2024-11-30",
+    "units_actual": 111.87,
+    "units_pred": 68.84,
+    "residual": 43.03,
+    "z": 2.6642849355811564,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CTR-32OZ",
+    "segment": "healthcare",
+    "order_date": "2024-03-08",
+    "units_actual": 22.03,
+    "units_pred": 13.73,
+    "residual": 8.3,
+    "z": 2.843704650147829,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CTR-32OZ",
+    "segment": "healthcare",
+    "order_date": "2024-06-06",
+    "units_actual": 20.88,
+    "units_pred": 11.5,
+    "residual": 9.379999999999999,
+    "z": 2.505036826323413,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CTR-32OZ",
+    "segment": "healthcare",
+    "order_date": "2024-07-01",
+    "units_actual": 37.3,
+    "units_pred": 13.62,
+    "residual": 23.68,
+    "z": 3.0149503162963813,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "segment": "food_service",
+    "order_date": "2024-02-04",
+    "units_actual": 82.02,
+    "units_pred": 140.29,
+    "residual": -58.269999999999996,
+    "z": -2.5050710839971813,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "segment": "food_service",
+    "order_date": "2024-04-06",
+    "units_actual": 179.01,
+    "units_pred": 100.75,
+    "residual": 78.25999999999999,
+    "z": 2.541506850692467,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "segment": "food_service",
+    "order_date": "2025-02-15",
+    "units_actual": 75.8,
+    "units_pred": 161.89,
+    "residual": -86.08999999999999,
+    "z": -2.7826623561721426,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "segment": "healthcare",
+    "order_date": "2024-01-25",
+    "units_actual": 34.54,
+    "units_pred": 20.26,
+    "residual": 14.279999999999998,
+    "z": 2.64002242641931,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "segment": "healthcare",
+    "order_date": "2024-03-25",
+    "units_actual": 31.17,
+    "units_pred": 20.61,
+    "residual": 10.560000000000002,
+    "z": 2.5872376729852786,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "segment": "healthcare",
+    "order_date": "2025-04-02",
+    "units_actual": 30.66,
+    "units_pred": 21.35,
+    "residual": 9.309999999999999,
+    "z": 2.6257791972024607,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "food_service",
+    "order_date": "2025-03-22",
+    "units_actual": 300.79,
+    "units_pred": 139.54,
+    "residual": 161.25000000000003,
+    "z": 2.503517809078824,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "food_service",
+    "order_date": "2025-04-25",
+    "units_actual": 192.21,
+    "units_pred": 114.81,
+    "residual": 77.4,
+    "z": 2.5043315695346497,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "food_service",
+    "order_date": "2025-05-12",
+    "units_actual": 199.64,
+    "units_pred": 78.18,
+    "residual": 121.45999999999998,
+    "z": 2.828839003226819,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "order_date": "2024-01-23",
+    "units_actual": 19.94,
+    "units_pred": 33.25,
+    "residual": -13.309999999999999,
+    "z": -2.6370142245292283,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "order_date": "2024-02-21",
+    "units_actual": 33.53,
+    "units_pred": 21.95,
+    "residual": 11.580000000000002,
+    "z": 2.6614450358348662,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "order_date": "2024-02-28",
+    "units_actual": 20.57,
+    "units_pred": 33.53,
+    "residual": -12.96,
+    "z": -2.5595733156144287,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "order_date": "2024-03-04",
+    "units_actual": 46.53,
+    "units_pred": 24.67,
+    "residual": 21.86,
+    "z": 2.604669340375738,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "order_date": "2024-04-25",
+    "units_actual": 43.81,
+    "units_pred": 22.41,
+    "residual": 21.400000000000002,
+    "z": 2.550316226521555,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "order_date": "2024-06-28",
+    "units_actual": 51.54,
+    "units_pred": 26.84,
+    "residual": 24.7,
+    "z": 2.6575530262944667,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "order_date": "2024-08-27",
+    "units_actual": 50.05,
+    "units_pred": 25.26,
+    "residual": 24.789999999999996,
+    "z": 2.76424310776702,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "order_date": "2024-09-17",
+    "units_actual": 19.22,
+    "units_pred": 51.23,
+    "residual": -32.01,
+    "z": -2.7754289877286498,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "order_date": "2025-01-09",
+    "units_actual": 45.0,
+    "units_pred": 21.39,
+    "residual": 23.61,
+    "z": 2.8311147290700798,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "order_date": "2025-03-20",
+    "units_actual": 40.47,
+    "units_pred": 63.19,
+    "residual": -22.72,
+    "z": -2.551397676601895,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "order_date": "2025-06-10",
+    "units_actual": 60.83,
+    "units_pred": 33.07,
+    "residual": 27.759999999999998,
+    "z": 2.9932743726580866,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "food_service",
+    "order_date": "2024-07-02",
+    "units_actual": 91.65,
+    "units_pred": 57.47,
+    "residual": 34.18000000000001,
+    "z": 2.5355289761906414,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "food_service",
+    "order_date": "2024-07-06",
+    "units_actual": 170.14,
+    "units_pred": 76.51,
+    "residual": 93.62999999999998,
+    "z": 2.6397046277895435,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "food_service",
+    "order_date": "2024-08-11",
+    "units_actual": 109.8,
+    "units_pred": 48.86,
+    "residual": 60.94,
+    "z": 2.688140578996363,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "food_service",
+    "order_date": "2024-12-11",
+    "units_actual": 79.98,
+    "units_pred": 37.39,
+    "residual": 42.59,
+    "z": 2.509698101397759,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "food_service",
+    "order_date": "2025-02-10",
+    "units_actual": 54.31,
+    "units_pred": 25.79,
+    "residual": 28.520000000000003,
+    "z": 2.7424114399378507,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "food_service",
+    "order_date": "2025-05-11",
+    "units_actual": 93.62,
+    "units_pred": 62.3,
+    "residual": 31.320000000000007,
+    "z": 2.9499518371426485,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "healthcare",
+    "order_date": "2024-03-12",
+    "units_actual": 20.36,
+    "units_pred": 13.01,
+    "residual": 7.35,
+    "z": 2.629101066791267,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "healthcare",
+    "order_date": "2024-07-16",
+    "units_actual": 11.83,
+    "units_pred": 31.2,
+    "residual": -19.369999999999997,
+    "z": -2.7355580041214087,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "healthcare",
+    "order_date": "2024-08-13",
+    "units_actual": 20.64,
+    "units_pred": 11.59,
+    "residual": 9.05,
+    "z": 2.7375243276766383,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "healthcare",
+    "order_date": "2024-08-28",
+    "units_actual": 25.81,
+    "units_pred": 17.8,
+    "residual": 8.009999999999998,
+    "z": 2.582891840163825,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "healthcare",
+    "order_date": "2024-12-06",
+    "units_actual": 17.74,
+    "units_pred": 11.33,
+    "residual": 6.409999999999998,
+    "z": 2.716782321868272,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "healthcare",
+    "order_date": "2025-06-30",
+    "units_actual": 23.76,
+    "units_pred": 14.42,
+    "residual": 9.340000000000002,
+    "z": 2.7765095155192645,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "food_service",
+    "order_date": "2024-03-13",
+    "units_actual": 56.73,
+    "units_pred": 28.67,
+    "residual": 28.059999999999995,
+    "z": 2.5170299760651274,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "food_service",
+    "order_date": "2024-07-13",
+    "units_actual": 57.56,
+    "units_pred": 27.07,
+    "residual": 30.490000000000002,
+    "z": 2.9593656822966103,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "food_service",
+    "order_date": "2025-01-17",
+    "units_actual": 66.09,
+    "units_pred": 33.08,
+    "residual": 33.010000000000005,
+    "z": 2.5565717273880333,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "food_service",
+    "order_date": "2025-06-06",
+    "units_actual": 58.81,
+    "units_pred": 32.79,
+    "residual": 26.020000000000003,
+    "z": 2.578193790142159,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "healthcare",
+    "order_date": "2024-09-24",
+    "units_actual": 69.86,
+    "units_pred": 31.72,
+    "residual": 38.14,
+    "z": 2.5552828719992378,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "healthcare",
+    "order_date": "2024-09-25",
+    "units_actual": 80.33,
+    "units_pred": 28.48,
+    "residual": 51.849999999999994,
+    "z": 2.6721013015632495,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "healthcare",
+    "order_date": "2024-11-04",
+    "units_actual": 121.47,
+    "units_pred": 67.01,
+    "residual": 54.459999999999994,
+    "z": 2.572837929337333,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "healthcare",
+    "order_date": "2025-05-05",
+    "units_actual": 110.16,
+    "units_pred": 73.11,
+    "residual": 37.05,
+    "z": 2.5793270837877365,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "healthcare",
+    "order_date": "2025-06-09",
+    "units_actual": 113.05,
+    "units_pred": 60.11,
+    "residual": 52.94,
+    "z": 3.1025815612688485,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-M",
+    "segment": "food_service",
+    "order_date": "2024-06-15",
+    "units_actual": 55.49,
+    "units_pred": 38.15,
+    "residual": 17.340000000000003,
+    "z": 2.683648865749965,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-M",
+    "segment": "food_service",
+    "order_date": "2024-12-11",
+    "units_actual": 31.87,
+    "units_pred": 82.02,
+    "residual": -50.14999999999999,
+    "z": -2.5372277039586417,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "GLV-NIT-M",
+    "segment": "healthcare",
+    "order_date": "2024-05-09",
+    "units_actual": 119.63,
+    "units_pred": 49.85,
+    "residual": 69.78,
+    "z": 2.8111902044781294,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-M",
+    "segment": "healthcare",
+    "order_date": "2024-09-24",
+    "units_actual": 79.21,
+    "units_pred": 24.39,
+    "residual": 54.81999999999999,
+    "z": 2.9544814527796968,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-NIT-M",
+    "segment": "healthcare",
+    "order_date": "2024-09-25",
+    "units_actual": 91.65,
+    "units_pred": 28.15,
+    "residual": 63.50000000000001,
+    "z": 2.53656764394239,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-POL-L",
+    "segment": "food_service",
+    "order_date": "2024-01-27",
+    "units_actual": 84.88,
+    "units_pred": 157.55,
+    "residual": -72.67000000000002,
+    "z": -2.625167540040887,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "GLV-POL-L",
+    "segment": "food_service",
+    "order_date": "2024-03-01",
+    "units_actual": 117.13,
+    "units_pred": 80.35,
+    "residual": 36.78,
+    "z": 2.538317840543323,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-POL-L",
+    "segment": "healthcare",
+    "order_date": "2024-08-02",
+    "units_actual": 18.75,
+    "units_pred": 36.48,
+    "residual": -17.729999999999997,
+    "z": -2.5873908390608977,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "GLV-POL-L",
+    "segment": "healthcare",
+    "order_date": "2024-11-08",
+    "units_actual": 33.88,
+    "units_pred": 15.39,
+    "residual": 18.490000000000002,
+    "z": 3.1091350449055555,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-POL-L",
+    "segment": "healthcare",
+    "order_date": "2025-02-24",
+    "units_actual": 26.56,
+    "units_pred": 16.55,
+    "residual": 10.009999999999998,
+    "z": 2.6128578444348816,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "segment": "food_service",
+    "order_date": "2024-02-10",
+    "units_actual": 226.79,
+    "units_pred": 134.66,
+    "residual": 92.13,
+    "z": 2.5319086139108666,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "segment": "food_service",
+    "order_date": "2024-03-02",
+    "units_actual": 199.71,
+    "units_pred": 123.15,
+    "residual": 76.56,
+    "z": 2.5668383141781494,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "segment": "healthcare",
+    "order_date": "2024-03-12",
+    "units_actual": 46.36,
+    "units_pred": 29.54,
+    "residual": 16.82,
+    "z": 2.539016784180204,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "segment": "healthcare",
+    "order_date": "2024-04-02",
+    "units_actual": 51.7,
+    "units_pred": 27.04,
+    "residual": 24.660000000000004,
+    "z": 2.596610353017826,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "segment": "healthcare",
+    "order_date": "2025-02-10",
+    "units_actual": 54.47,
+    "units_pred": 29.01,
+    "residual": 25.459999999999997,
+    "z": 2.9271840396279676,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "segment": "healthcare",
+    "order_date": "2025-02-25",
+    "units_actual": 52.09,
+    "units_pred": 32.92,
+    "residual": 19.17,
+    "z": 2.662931372777301,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "MED-GAU-4",
+    "segment": "healthcare",
+    "order_date": "2024-02-12",
+    "units_actual": 26.61,
+    "units_pred": 48.79,
+    "residual": -22.18,
+    "z": -2.5858728764692467,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "MED-GAU-4",
+    "segment": "healthcare",
+    "order_date": "2024-03-25",
+    "units_actual": 49.59,
+    "units_pred": 28.42,
+    "residual": 21.17,
+    "z": 3.2110436662031243,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "MED-GAU-4",
+    "segment": "healthcare",
+    "order_date": "2024-08-06",
+    "units_actual": 49.06,
+    "units_pred": 30.65,
+    "residual": 18.410000000000004,
+    "z": 2.5036179933853897,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "MED-GAU-4",
+    "segment": "healthcare",
+    "order_date": "2024-08-13",
+    "units_actual": 25.9,
+    "units_pred": 49.06,
+    "residual": -23.160000000000004,
+    "z": -2.513517609930544,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "food_service",
+    "order_date": "2024-03-15",
+    "units_actual": 119.99,
+    "units_pred": 81.55,
+    "residual": 38.44,
+    "z": 2.635865333016497,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "food_service",
+    "order_date": "2024-07-17",
+    "units_actual": 146.97,
+    "units_pred": 76.27,
+    "residual": 70.7,
+    "z": 2.6381278863212687,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "food_service",
+    "order_date": "2024-08-09",
+    "units_actual": 197.3,
+    "units_pred": 84.12,
+    "residual": 113.18,
+    "z": 2.659514384268252,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "food_service",
+    "order_date": "2025-02-22",
+    "units_actual": 78.96,
+    "units_pred": 135.83,
+    "residual": -56.87000000000002,
+    "z": -2.639117013948222,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "food_service",
+    "order_date": "2025-03-15",
+    "units_actual": 200.21,
+    "units_pred": 81.24,
+    "residual": 118.97000000000001,
+    "z": 2.6381460193495387,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "healthcare",
+    "order_date": "2024-04-12",
+    "units_actual": 45.65,
+    "units_pred": 15.7,
+    "residual": 29.95,
+    "z": 2.876773318443116,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "healthcare",
+    "order_date": "2024-09-05",
+    "units_actual": 36.43,
+    "units_pred": 18.64,
+    "residual": 17.79,
+    "z": 2.5477952387804192,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "healthcare",
+    "order_date": "2024-11-19",
+    "units_actual": 30.71,
+    "units_pred": 18.63,
+    "residual": 12.080000000000002,
+    "z": 2.5715438198113856,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "healthcare",
+    "order_date": "2025-03-14",
+    "units_actual": 43.73,
+    "units_pred": 16.53,
+    "residual": 27.199999999999996,
+    "z": 2.73374373202686,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "healthcare",
+    "order_date": "2025-04-16",
+    "units_actual": 38.92,
+    "units_pred": 25.02,
+    "residual": 13.900000000000002,
+    "z": 2.822806658117428,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "food_service",
+    "order_date": "2024-02-10",
+    "units_actual": 107.52,
+    "units_pred": 64.08,
+    "residual": 43.44,
+    "z": 2.544273159845601,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "food_service",
+    "order_date": "2024-12-29",
+    "units_actual": 80.51,
+    "units_pred": 132.11,
+    "residual": -51.60000000000001,
+    "z": -2.635273421174215,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "food_service",
+    "order_date": "2025-01-27",
+    "units_actual": 47.47,
+    "units_pred": 111.04,
+    "residual": -63.57000000000001,
+    "z": -2.8045910961915346,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "food_service",
+    "order_date": "2025-04-22",
+    "units_actual": 56.1,
+    "units_pred": 88.67,
+    "residual": -32.57,
+    "z": -2.6802244018568775,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "healthcare",
+    "order_date": "2024-04-15",
+    "units_actual": 36.73,
+    "units_pred": 25.99,
+    "residual": 10.739999999999998,
+    "z": 2.5169836710321833,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "healthcare",
+    "order_date": "2024-04-17",
+    "units_actual": 37.63,
+    "units_pred": 17.06,
+    "residual": 20.570000000000004,
+    "z": 2.7887149351292577,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "healthcare",
+    "order_date": "2024-10-14",
+    "units_actual": 21.18,
+    "units_pred": 16.37,
+    "residual": 4.809999999999999,
+    "z": 2.5708472191927365,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "healthcare",
+    "order_date": "2024-11-19",
+    "units_actual": 31.29,
+    "units_pred": 17.11,
+    "residual": 14.18,
+    "z": 2.6994619100978334,
+    "direction": "surge"
+  },
+  {
+    "sku_id": "WRP-PLAS-12",
+    "segment": "food_service",
+    "order_date": "2024-06-06",
+    "units_actual": 36.06,
+    "units_pred": 124.23,
+    "residual": -88.17,
+    "z": -2.9757258002699167,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "WRP-PLAS-12",
+    "segment": "food_service",
+    "order_date": "2024-11-07",
+    "units_actual": 44.73,
+    "units_pred": 95.25,
+    "residual": -50.52,
+    "z": -2.6315476212642994,
+    "direction": "shortfall"
+  },
+  {
+    "sku_id": "WRP-PLAS-12",
+    "segment": "healthcare",
+    "order_date": "2025-04-30",
+    "units_actual": 32.1,
+    "units_pred": 13.32,
+    "residual": 18.78,
+    "z": 2.945288734115489,
+    "direction": "surge"
+  }
+]

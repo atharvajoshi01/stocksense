@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-05-13T02:50:45.151482+00:00",
+  "finished_at": "2026-05-13T02:50:58.963836+00:00",
+  "tasks": [
+    {
+      "task": "generate",
+      "duration_s": 0.12741120799910277,
+      "ok": true,
+      "error": ""
+    },
+    {
+      "task": "t_validate",
+      "duration_s": 0.006141750025562942,
+      "ok": true,
+      "error": ""
+    },
+    {
+      "task": "t_backtest_each",
+      "duration_s": 3.3771244999952614,
+      "ok": true,
+      "error": ""
+    },
+    {
+      "task": "t_movement",
+      "duration_s": 0.00639362505171448,
+      "ok": true,
+      "error": ""
+    },
+    {
+      "task": "t_anomalies",
+      "duration_s": 0.23843083309475332,
+      "ok": true,
+      "error": ""
+    },
+    {
+      "task": "t_concentration",
+      "duration_s": 0.004044083063490689,
+      "ok": true,
+      "error": ""
+    },
+    {
+      "task": "t_select_winners",
+      "duration_s": 0.007496500038541853,
+      "ok": true,
+      "error": ""
+    },
+    {
+      "task": "t_fit_winners",
+      "duration_s": 0.6666096249828115,
+      "ok": true,
+      "error": ""
+    },
+    {
+      "task": "t_produce_forecasts",
+      "duration_s": 9.32213733298704,
+      "ok": true,
+      "error": ""
+    },
+    {
+      "task": "t_inventory_health",
+      "duration_s": 0.00562774995341897,
+      "ok": true,
+      "error": ""
+    },
+    {
+      "task": "t_export",
+      "duration_s": 0.05022183305118233,
+      "ok": true,
+      "error": ""
+    }
+  ]
+}

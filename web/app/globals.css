@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg-default: #09090b;
+  --color-fg-default: #fafafa;
+}
+
+html {
+  background: #09090b;
+}
+
+body {
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "sku_id": "CTR-32OZ",
+    "segment": "food_service",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "CTR-32OZ",
+    "segment": "healthcare",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "segment": "food_service",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "segment": "healthcare",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "food_service",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "food_service",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "healthcare",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "food_service",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "healthcare",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "GLV-NIT-M",
+    "segment": "food_service",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "GLV-NIT-M",
+    "segment": "healthcare",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "GLV-POL-L",
+    "segment": "food_service",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "GLV-POL-L",
+    "segment": "healthcare",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "segment": "food_service",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "segment": "healthcare",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "MED-GAU-4",
+    "segment": "food_service",
+    "winner": "seasonal_naive_7"
+  },
+  {
+    "sku_id": "MED-GAU-4",
+    "segment": "healthcare",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "food_service",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "healthcare",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "food_service",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "healthcare",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "WRP-PLAS-12",
+    "segment": "food_service",
+    "winner": "hgbt"
+  },
+  {
+    "sku_id": "WRP-PLAS-12",
+    "segment": "healthcare",
+    "winner": "hgbt"
+  }
+]

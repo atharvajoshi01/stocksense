@@ -1,0 +1,74 @@
+[
+  {
+    "sku_id": "CTR-32OZ",
+    "revenue": 681736.93,
+    "share": 0.17047423939450113,
+    "cumulative_share": 0.17047423939450113
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "revenue": 506514.55,
+    "share": 0.12665836168432007,
+    "cumulative_share": 0.2971326010788212
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "revenue": 486019.7,
+    "share": 0.1215334464692174,
+    "cumulative_share": 0.4186660475480386
+  },
+  {
+    "sku_id": "GLV-NIT-M",
+    "revenue": 431724.74,
+    "share": 0.10795652023616903,
+    "cumulative_share": 0.5266225677842076
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "revenue": 371322.73,
+    "share": 0.09285247311839143,
+    "cumulative_share": 0.619475040902599
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "revenue": 328248.85,
+    "share": 0.08208147538064232,
+    "cumulative_share": 0.7015565162832413
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "revenue": 298378.58,
+    "share": 0.07461215498053084,
+    "cumulative_share": 0.7761686712637722
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "revenue": 280149.62,
+    "share": 0.07005384523640008,
+    "cumulative_share": 0.8462225165001723
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "revenue": 244836.45,
+    "share": 0.06122348042638647,
+    "cumulative_share": 0.9074459969265588
+  },
+  {
+    "sku_id": "WRP-PLAS-12",
+    "revenue": 154744.9,
+    "share": 0.03869530601441546,
+    "cumulative_share": 0.9461413029409743
+  },
+  {
+    "sku_id": "GLV-POL-L",
+    "revenue": 126932.93,
+    "share": 0.03174068140311168,
+    "cumulative_share": 0.977881984344086
+  },
+  {
+    "sku_id": "MED-GAU-4",
+    "revenue": 88451.3,
+    "share": 0.022118015655914133,
+    "cumulative_share": 1.0000000000000002
+  }
+]

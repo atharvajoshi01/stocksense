@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-05-13T02:50:58.913626+00:00",
+  "start_date": "2024-01-01",
+  "end_date": "2025-06-30",
+  "n_orders": 13128,
+  "n_skus": 12,
+  "n_segments": 2,
+  "catalog": [
+    {
+      "sku_id": "GLV-NIT-M",
+      "name": "Nitrile Glove M (case 1000)",
+      "product_family": "gloves",
+      "primary_segment": "healthcare",
+      "lead_time_days": 7,
+      "case_pack": 1000,
+      "unit_cost": 32.5
+    },
+    {
+      "sku_id": "GLV-NIT-L",
+      "name": "Nitrile Glove L (case 1000)",
+      "product_family": "gloves",
+      "primary_segment": "healthcare",
+      "lead_time_days": 7,
+      "case_pack": 1000,
+      "unit_cost": 32.5
+    },
+    {
+      "sku_id": "GLV-VIN-M",
+      "name": "Vinyl Glove M (case 1000)",
+      "product_family": "gloves",
+      "primary_segment": "food_service",
+      "lead_time_days": 10,
+      "case_pack": 1000,
+      "unit_cost": 21.0
+    },
+    {
+      "sku_id": "GLV-POL-L",
+      "name": "Poly Glove L (case 10000)",
+      "product_family": "gloves",
+      "primary_segment": "food_service",
+      "lead_time_days": 14,
+      "case_pack": 10000,
+      "unit_cost": 8.4
+    },
+    {
+      "sku_id": "WRP-FOIL-18",
+      "name": "Foil Roll 18in x 500ft",
+      "product_family": "wraps",
+      "primary_segment": "food_service",
+      "lead_time_days": 14,
+      "case_pack": 6,
+      "unit_cost": 18.2
+    },
+    {
+      "sku_id": "WRP-PLAS-12",
+      "name": "Plastic Wrap 12in x 2000ft",
+      "product_family": "wraps",
+      "primary_segment": "food_service",
+      "lead_time_days": 14,
+      "case_pack": 6,
+      "unit_cost": 12.95
+    },
+    {
+      "sku_id": "CTR-8OZ",
+      "name": "8oz Soup Container",
+      "product_family": "containers",
+      "primary_segment": "food_service",
+      "lead_time_days": 14,
+      "case_pack": 500,
+      "unit_cost": 28.0
+    },
+    {
+      "sku_id": "CTR-32OZ",
+      "name": "32oz Bowl with Lid",
+      "product_family": "containers",
+      "primary_segment": "food_service",
+      "lead_time_days": 14,
+      "case_pack": 250,
+      "unit_cost": 64.0
+    },
+    {
+      "sku_id": "CUT-FRK",
+      "name": "Fork (case 1000)",
+      "product_family": "cutlery",
+      "primary_segment": "food_service",
+      "lead_time_days": 21,
+      "case_pack": 1000,
+      "unit_cost": 14.5
+    },
+    {
+      "sku_id": "CUT-KIT",
+      "name": "Cutlery Kit (case 250)",
+      "product_family": "cutlery",
+      "primary_segment": "food_service",
+      "lead_time_days": 21,
+      "case_pack": 250,
+      "unit_cost": 32.75
+    },
+    {
+      "sku_id": "PRT-2OZ",
+      "name": "2oz Portion Cup (case 2500)",
+      "product_family": "portion",
+      "primary_segment": "food_service",
+      "lead_time_days": 14,
+      "case_pack": 2500,
+      "unit_cost": 22.0
+    },
+    {
+      "sku_id": "MED-GAU-4",
+      "name": "Gauze Pad 4x4 (case 200)",
+      "product_family": "medical",
+      "primary_segment": "healthcare",
+      "lead_time_days": 10,
+      "case_pack": 200,
+      "unit_cost": 18.5
+    }
+  ]
+}

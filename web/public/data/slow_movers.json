@@ -1,0 +1,194 @@
+[
+  {
+    "sku_id": "CTR-32OZ",
+    "segment": "food_service",
+    "baseline_daily": 72.53033333333333,
+    "recent_daily": 76.29366666666667,
+    "delta_pct": 0.05188633721063834,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "CTR-32OZ",
+    "segment": "healthcare",
+    "baseline_daily": 15.141,
+    "recent_daily": 15.777666666666667,
+    "delta_pct": 0.04204918213239989,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "segment": "food_service",
+    "baseline_daily": 119.30644444444444,
+    "recent_daily": 122.109,
+    "delta_pct": 0.02349039541498179,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "segment": "healthcare",
+    "baseline_daily": 23.556666666666665,
+    "recent_daily": 24.028666666666666,
+    "delta_pct": 0.020036790717419047,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "food_service",
+    "baseline_daily": 131.90544444444444,
+    "recent_daily": 134.75033333333334,
+    "delta_pct": 0.021567638097660973,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "baseline_daily": 27.113,
+    "recent_daily": 28.243,
+    "delta_pct": 0.04167742411389367,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "food_service",
+    "baseline_daily": 61.96611111111111,
+    "recent_daily": 67.67133333333334,
+    "delta_pct": 0.09207003828257386,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "healthcare",
+    "baseline_daily": 13.019888888888888,
+    "recent_daily": 13.876333333333333,
+    "delta_pct": 0.06577970455457044,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "food_service",
+    "baseline_daily": 33.933,
+    "recent_daily": 33.725,
+    "delta_pct": -0.006129726225208452,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "healthcare",
+    "baseline_daily": 60.102777777777774,
+    "recent_daily": 55.03866666666667,
+    "delta_pct": -0.08425752183759289,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "GLV-NIT-M",
+    "segment": "food_service",
+    "baseline_daily": 40.47177777777778,
+    "recent_daily": 38.283,
+    "delta_pct": -0.05408158222739582,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "GLV-NIT-M",
+    "segment": "healthcare",
+    "baseline_daily": 68.85988888888889,
+    "recent_daily": 64.75133333333333,
+    "delta_pct": -0.059665439806111914,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "GLV-POL-L",
+    "segment": "food_service",
+    "baseline_daily": 103.18844444444443,
+    "recent_daily": 109.14933333333333,
+    "delta_pct": 0.05776701956291416,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "GLV-POL-L",
+    "segment": "healthcare",
+    "baseline_daily": 21.181666666666665,
+    "recent_daily": 21.26066666666667,
+    "delta_pct": 0.003729640412306437,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "segment": "food_service",
+    "baseline_daily": 163.99966666666666,
+    "recent_daily": 170.389,
+    "delta_pct": 0.03895942877932692,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "segment": "healthcare",
+    "baseline_daily": 34.51722222222222,
+    "recent_daily": 35.24633333333334,
+    "delta_pct": 0.021123110846437518,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "MED-GAU-4",
+    "segment": "food_service",
+    "baseline_daily": 14.646333333333335,
+    "recent_daily": 14.107,
+    "delta_pct": -0.03682377842008251,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "MED-GAU-4",
+    "segment": "healthcare",
+    "baseline_daily": 24.704222222222224,
+    "recent_daily": 22.361666666666668,
+    "delta_pct": -0.09482409664564763,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "food_service",
+    "baseline_daily": 101.47844444444443,
+    "recent_daily": 105.89899999999999,
+    "delta_pct": 0.0435615226441083,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "healthcare",
+    "baseline_daily": 21.32411111111111,
+    "recent_daily": 22.594,
+    "delta_pct": 0.05955178540723336,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "food_service",
+    "baseline_daily": 91.16677777777778,
+    "recent_daily": 99.12333333333332,
+    "delta_pct": 0.08727472605152199,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "healthcare",
+    "baseline_daily": 19.553555555555555,
+    "recent_daily": 20.781,
+    "delta_pct": 0.06277346546805922,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "WRP-PLAS-12",
+    "segment": "food_service",
+    "baseline_daily": 81.26599999999999,
+    "recent_daily": 83.30366666666667,
+    "delta_pct": 0.025074036702516192,
+    "movement": "stable"
+  },
+  {
+    "sku_id": "WRP-PLAS-12",
+    "segment": "healthcare",
+    "baseline_daily": 17.083333333333332,
+    "recent_daily": 17.324333333333335,
+    "delta_pct": 0.01410731707317092,
+    "movement": "stable"
+  }
+]

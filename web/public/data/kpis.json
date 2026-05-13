@@ -1,0 +1,11 @@
+{
+  "revenue_last_30d": 1362931.02,
+  "revenue_prior_30d": 1355833.7799999998,
+  "revenue_change_pct": 0.005234594464817232,
+  "units_last_30d": 41882.619999999995,
+  "forecast_mape": 0.21947452609416424,
+  "forecast_bias": -0.1768934068447852,
+  "high_risk_skus": 8,
+  "decelerating_skus": 0,
+  "accelerating_skus": 0
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "sku_id": "CTR-32OZ",
+    "segment": "food_service",
+    "units_on_hand": 1376.0,
+    "avg_daily_forecast": 80.18305622132446,
+    "days_of_cover": 17.160732763813716,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 14,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "CTR-32OZ",
+    "segment": "healthcare",
+    "units_on_hand": 180.0,
+    "avg_daily_forecast": 16.694270906403414,
+    "days_of_cover": 10.782142029991707,
+    "projected_stockout_days": 3.2178579700082928,
+    "lead_time_days": 14,
+    "stockout_risk": "high"
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "segment": "food_service",
+    "units_on_hand": 2418.0,
+    "avg_daily_forecast": 127.11486473687444,
+    "days_of_cover": 19.022165542993086,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 14,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "CTR-8OZ",
+    "segment": "healthcare",
+    "units_on_hand": 390.0,
+    "avg_daily_forecast": 24.736231000860982,
+    "days_of_cover": 15.76634694212006,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 14,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "food_service",
+    "units_on_hand": 774.0,
+    "avg_daily_forecast": 137.3155156799298,
+    "days_of_cover": 5.636653630636503,
+    "projected_stockout_days": 8.363346369363498,
+    "lead_time_days": 21,
+    "stockout_risk": "high"
+  },
+  {
+    "sku_id": "CUT-FRK",
+    "segment": "healthcare",
+    "units_on_hand": 606.0,
+    "avg_daily_forecast": 28.71790663342068,
+    "days_of_cover": 21.10181663780336,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 21,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "food_service",
+    "units_on_hand": 1197.0,
+    "avg_daily_forecast": 68.73537966070387,
+    "days_of_cover": 17.41461247335376,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 21,
+    "stockout_risk": "high"
+  },
+  {
+    "sku_id": "CUT-KIT",
+    "segment": "healthcare",
+    "units_on_hand": 245.0,
+    "avg_daily_forecast": 14.539775463627397,
+    "days_of_cover": 16.850328989803888,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 21,
+    "stockout_risk": "high"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "food_service",
+    "units_on_hand": 207.0,
+    "avg_daily_forecast": 34.98991663502115,
+    "days_of_cover": 5.9159900882077325,
+    "projected_stockout_days": 8.084009911792268,
+    "lead_time_days": 7,
+    "stockout_risk": "high"
+  },
+  {
+    "sku_id": "GLV-NIT-L",
+    "segment": "healthcare",
+    "units_on_hand": 671.0,
+    "avg_daily_forecast": 53.09745003848025,
+    "days_of_cover": 12.637141699153531,
+    "projected_stockout_days": 1.3628583008464688,
+    "lead_time_days": 7,
+    "stockout_risk": "low"
+  },
+  {
+    "sku_id": "GLV-NIT-M",
+    "segment": "food_service",
+    "units_on_hand": 382.0,
+    "avg_daily_forecast": 38.43781293121696,
+    "days_of_cover": 9.938130472812665,
+    "projected_stockout_days": 4.061869527187335,
+    "lead_time_days": 7,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "GLV-NIT-M",
+    "segment": "healthcare",
+    "units_on_hand": 1299.0,
+    "avg_daily_forecast": 65.38258857649447,
+    "days_of_cover": 19.867674686514327,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 7,
+    "stockout_risk": "low"
+  },
+  {
+    "sku_id": "GLV-POL-L",
+    "segment": "food_service",
+    "units_on_hand": 1788.0,
+    "avg_daily_forecast": 108.35423948911703,
+    "days_of_cover": 16.501430940130263,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 14,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "GLV-POL-L",
+    "segment": "healthcare",
+    "units_on_hand": 400.0,
+    "avg_daily_forecast": 21.91412567791522,
+    "days_of_cover": 18.25306680627076,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 14,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "segment": "food_service",
+    "units_on_hand": 2048.0,
+    "avg_daily_forecast": 170.1971941200578,
+    "days_of_cover": 12.033100842751454,
+    "projected_stockout_days": 1.9668991572485464,
+    "lead_time_days": 10,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "GLV-VIN-M",
+    "segment": "healthcare",
+    "units_on_hand": 280.0,
+    "avg_daily_forecast": 34.82492109454114,
+    "days_of_cover": 8.04021922231693,
+    "projected_stockout_days": 5.95978077768307,
+    "lead_time_days": 10,
+    "stockout_risk": "high"
+  },
+  {
+    "sku_id": "MED-GAU-4",
+    "segment": "food_service",
+    "units_on_hand": 198.0,
+    "avg_daily_forecast": 15.221492556803343,
+    "days_of_cover": 13.00792279476579,
+    "projected_stockout_days": 0.9920772052342102,
+    "lead_time_days": 10,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "MED-GAU-4",
+    "segment": "healthcare",
+    "units_on_hand": 118.0,
+    "avg_daily_forecast": 22.09334916425526,
+    "days_of_cover": 5.340973843427583,
+    "projected_stockout_days": 8.659026156572416,
+    "lead_time_days": 10,
+    "stockout_risk": "high"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "food_service",
+    "units_on_hand": 2108.0,
+    "avg_daily_forecast": 107.45296183178878,
+    "days_of_cover": 19.61788641340523,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 14,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "PRT-2OZ",
+    "segment": "healthcare",
+    "units_on_hand": 385.0,
+    "avg_daily_forecast": 24.34925420895354,
+    "days_of_cover": 15.811572572043314,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 14,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "food_service",
+    "units_on_hand": 1758.0,
+    "avg_daily_forecast": 104.32865574432363,
+    "days_of_cover": 16.850595720396313,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 14,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "WRP-FOIL-18",
+    "segment": "healthcare",
+    "units_on_hand": 221.0,
+    "avg_daily_forecast": 21.839874111054836,
+    "days_of_cover": 10.119105947050077,
+    "projected_stockout_days": 3.880894052949923,
+    "lead_time_days": 14,
+    "stockout_risk": "high"
+  },
+  {
+    "sku_id": "WRP-PLAS-12",
+    "segment": "food_service",
+    "units_on_hand": 1768.0,
+    "avg_daily_forecast": 91.37786932550709,
+    "days_of_cover": 19.34822964302236,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 14,
+    "stockout_risk": "medium"
+  },
+  {
+    "sku_id": "WRP-PLAS-12",
+    "segment": "healthcare",
+    "units_on_hand": 348.0,
+    "avg_daily_forecast": 17.423413696320207,
+    "days_of_cover": 19.973123870295115,
+    "projected_stockout_days": 0.0,
+    "lead_time_days": 14,
+    "stockout_risk": "medium"
+  }
+]
