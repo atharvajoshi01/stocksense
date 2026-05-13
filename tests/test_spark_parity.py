@@ -30,12 +30,15 @@ SHARED_COLS = [
 
 @pytest.fixture(scope="module")
 def spark():
-    sess = (
-        SparkSession.builder.appName("stocksense-parity")
-        .master("local[2]")
-        .config("spark.sql.shuffle.partitions", "4")
-        .getOrCreate()
-    )
+    try:
+        sess = (
+            SparkSession.builder.appName("stocksense-parity")
+            .master("local[2]")
+            .config("spark.sql.shuffle.partitions", "4")
+            .getOrCreate()
+        )
+    except Exception as exc:  # noqa: BLE001
+        pytest.skip(f"Spark session unavailable (likely no Java): {exc}")
     yield sess
     sess.stop()
 

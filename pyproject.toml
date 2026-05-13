@@ -39,6 +39,9 @@ packages = ["pipeline/stocksense"]
 testpaths = ["tests"]
 addopts = "-ra -q --strict-markers"
 pythonpath = ["pipeline"]
+markers = [
+    "slow: tests requiring an external runtime (e.g. PySpark + Java)",
+]
 
 [tool.ruff]
 line-length = 100
