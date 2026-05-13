@@ -13,6 +13,39 @@ import {
   type SkuRow,
 } from "./supabase";
 import { aggregateDaily, isoDaysAgo } from "./live";
+
+/**
+ * Page-through an "orders" select that uses sku/segment/fromDate filters.
+ * Supabase defaults to 1000 rows per response — anything bigger needs .range().
+ */
+async function pageOrders(opts: {
+  columns: string;
+  fromDate?: string;
+  sku?: string;
+  segment?: string;
+  cap?: number;
+}): Promise<Array<Record<string, unknown>>> {
+  const client = getServerClient();
+  if (!client) return [];
+  const cap = opts.cap ?? 60_000;
+  const pageSize = 1000;
+  const out: Array<Record<string, unknown>> = [];
+  let from = 0;
+  while (out.length < cap) {
+    let q = client.from("orders").select(opts.columns).order("order_date", { ascending: true });
+    if (opts.fromDate) q = q.gte("order_date", opts.fromDate);
+    if (opts.sku) q = q.eq("sku", opts.sku);
+    if (opts.segment) q = q.eq("segment", opts.segment);
+    q = q.range(from, from + pageSize - 1);
+    const { data, error } = await q;
+    if (error) throw new Error(error.message);
+    if (!data || data.length === 0) break;
+    out.push(...(data as unknown as Array<Record<string, unknown>>));
+    if (data.length < pageSize) break;
+    from += pageSize;
+  }
+  return out;
+}
 import { forecast14d, computeMAPE, ensemble } from "./forecasting";
 
 const DATA_DIR = path.join(process.cwd(), "public", "data");
@@ -181,17 +214,15 @@ export async function loadMeta(): Promise<Meta> {
 async function liveInventory(): Promise<InventoryRow[] | null> {
   if (!isSupabaseConfigured()) return null;
   const client = getServerClient()!;
-  const [{ data: invRows, error: invErr }, { data: orderRows, error: ordErr }] = await Promise.all([
+  const [invRes, orderRows] = await Promise.all([
     client.from("inventory").select("*"),
-    client
-      .from("orders")
-      .select("sku,segment,quantity,order_date")
-      .gte("order_date", isoDaysAgo(30)),
+    pageOrders({ columns: "sku,segment,quantity,order_date", fromDate: isoDaysAgo(30) }),
   ]);
-  if (invErr || ordErr || !invRows) return null;
+  const { data: invRows, error: invErr } = invRes;
+  if (invErr || !invRows) return null;
 
   const byPanel = new Map<string, number[]>();
-  for (const o of orderRows ?? []) {
+  for (const o of orderRows) {
     const k = `${o.sku}__${o.segment}`;
     if (!byPanel.has(k)) byPanel.set(k, []);
     byPanel.get(k)!.push(Number(o.quantity));
@@ -235,21 +266,18 @@ export async function loadInventory(): Promise<{ rows: InventoryRow[]; source: S
 // ---------- KPIS ----------
 async function liveKpis(): Promise<KpiBlock | null> {
   if (!isSupabaseConfigured()) return null;
-  const client = getServerClient()!;
   const from60 = isoDaysAgo(60);
   const cutoff30 = isoDaysAgo(30);
-  const { data: orders60, error } = await client
-    .from("orders")
-    .select("sku,segment,quantity,unit_price,order_date")
-    .gte("order_date", from60);
-  if (error || !orders60) return null;
-
+  const orders60 = await pageOrders({
+    columns: "sku,segment,quantity,unit_price,order_date",
+    fromDate: from60,
+  });
   let revenueLast30 = 0;
   let revenuePrior30 = 0;
   let unitsLast30 = 0;
   for (const o of orders60) {
     const rev = Number(o.quantity) * Number(o.unit_price);
-    if ((o as OrderRow).order_date >= cutoff30) {
+    if ((o as unknown as OrderRow).order_date >= cutoff30) {
       revenueLast30 += rev;
       unitsLast30 += Number(o.quantity);
     } else {
@@ -260,15 +288,15 @@ async function liveKpis(): Promise<KpiBlock | null> {
 
   // Per-panel MAPE backtest: train on first 76 days, test on last 14 days
   const fromHistory = isoDaysAgo(120);
-  const { data: hist } = await client
-    .from("orders")
-    .select("sku,segment,quantity,order_date")
-    .gte("order_date", fromHistory);
+  const hist = await pageOrders({
+    columns: "sku,segment,quantity,order_date",
+    fromDate: fromHistory,
+  });
   let mapeNum = 0;
   let mapeDen = 0;
-  if (hist) {
+  if (hist.length) {
     const panels = new Map<string, OrderRow[]>();
-    for (const o of hist as OrderRow[]) {
+    for (const o of hist as unknown as OrderRow[]) {
       const k = `${o.sku}__${o.segment}`;
       if (!panels.has(k)) panels.set(k, []);
       panels.get(k)!.push(o);
@@ -332,16 +360,15 @@ export async function loadKpis(): Promise<KpiBlock> {
 // ---------- FORECASTS ----------
 async function liveForecast(sku: string, segment: string): Promise<ForecastPanel | null> {
   if (!isSupabaseConfigured()) return null;
-  const client = getServerClient()!;
   const fromDate = isoDaysAgo(120);
-  const { data, error } = await client
-    .from("orders")
-    .select("sku,segment,quantity,order_date")
-    .eq("sku", sku)
-    .eq("segment", segment)
-    .gte("order_date", fromDate);
-  if (error || !data || data.length === 0) return null;
-  const daily = aggregateDaily(data as OrderRow[]);
+  const data = await pageOrders({
+    columns: "sku,segment,quantity,order_date",
+    sku,
+    segment,
+    fromDate,
+  });
+  if (data.length === 0) return null;
+  const daily = aggregateDaily(data as unknown as OrderRow[]);
   const history = daily.map((d) => ({ date: d.date, quantity: d.quantity }));
   const fc = forecast14d(history, "ensemble", 14);
   const sigma =
@@ -446,13 +473,12 @@ export async function loadSlowMovers(): Promise<SlowMoverRow[]> {
 
 export async function loadRevenueConcentration(): Promise<RevenueShare[]> {
   if (isSupabaseConfigured()) {
-    const client = getServerClient()!;
     const from = isoDaysAgo(90);
-    const { data, error } = await client
-      .from("orders")
-      .select("sku,quantity,unit_price")
-      .gte("order_date", from);
-    if (!error && data && data.length) {
+    const data = await pageOrders({
+      columns: "sku,quantity,unit_price,order_date",
+      fromDate: from,
+    });
+    if (data.length) {
       const m = new Map<string, number>();
       for (const o of data) {
         m.set(o.sku as string, (m.get(o.sku as string) ?? 0) + Number(o.quantity) * Number(o.unit_price));

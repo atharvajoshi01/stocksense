@@ -25,15 +25,29 @@ export async function fetchOrders(opts: {
 } = {}): Promise<OrderRow[]> {
   const client = getServerClient();
   if (!client) return [];
-  let q = client.from("orders").select("*").order("order_date", { ascending: true });
-  if (opts.sku) q = q.eq("sku", opts.sku);
-  if (opts.segment) q = q.eq("segment", opts.segment);
-  if (opts.fromDate) q = q.gte("order_date", opts.fromDate);
-  if (opts.toDate) q = q.lte("order_date", opts.toDate);
-  if (opts.limit) q = q.limit(opts.limit);
-  const { data, error } = await q;
-  if (error) throw new Error(error.message);
-  return (data ?? []) as OrderRow[];
+  // Page through results so we don't get truncated at Supabase's 1000-row default.
+  const pageSize = 1000;
+  const hardCap = opts.limit ?? 50_000;
+  const out: OrderRow[] = [];
+  let from = 0;
+  while (out.length < hardCap) {
+    let q = client
+      .from("orders")
+      .select("*")
+      .order("order_date", { ascending: true })
+      .range(from, from + pageSize - 1);
+    if (opts.sku) q = q.eq("sku", opts.sku);
+    if (opts.segment) q = q.eq("segment", opts.segment);
+    if (opts.fromDate) q = q.gte("order_date", opts.fromDate);
+    if (opts.toDate) q = q.lte("order_date", opts.toDate);
+    const { data, error } = await q;
+    if (error) throw new Error(error.message);
+    if (!data || data.length === 0) break;
+    out.push(...(data as OrderRow[]));
+    if (data.length < pageSize) break;
+    from += pageSize;
+  }
+  return out;
 }
 
 export async function fetchInventory(): Promise<InventoryRow[]> {

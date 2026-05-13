@@ -183,14 +183,23 @@ function generate(start: string, end: string): OrderRow[] {
   return out;
 }
 
+function isoDaysAgo(days: number): string {
+  const d = new Date();
+  d.setUTCDate(d.getUTCDate() - days);
+  return d.toISOString().slice(0, 10);
+}
+
 async function main() {
-  console.log("Truncating orders and inventory…");
-  // Truncate via service role
+  console.log("Truncating orders, inventory, and anomalies…");
+  await supabase.from("anomalies").delete().neq("id", -1);
   await supabase.from("orders").delete().neq("id", -1);
   await supabase.from("inventory").delete().neq("id", -1);
 
-  console.log("Generating order history…");
-  const rows = generate("2024-01-01", "2025-06-30");
+  // 18 months of history ending today so "last 30 days" KPIs have data.
+  const end = isoDaysAgo(0);
+  const start = isoDaysAgo(547);
+  console.log(`Generating order history ${start} → ${end}…`);
+  const rows = generate(start, end);
   console.log(`Generated ${rows.length} rows. Inserting in batches…`);
 
   // Disable the anomaly trigger during bulk seed so we don't burn it on every row
@@ -213,8 +222,8 @@ async function main() {
   console.log(`Inserted ${inserted} orders.`);
 
   console.log("Computing inventory snapshots…");
-  // Build per-panel average over last 14 days, then assign random multiplier
-  const cutoff = "2025-06-17"; // 14 days before 2025-06-30
+  // Build per-panel average over last 14 days
+  const cutoff = isoDaysAgo(13);
   const recent = rows.filter((r) => r.order_date >= cutoff);
   const byPanel = new Map<string, number[]>();
   for (const r of recent) {
