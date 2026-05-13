@@ -30,3 +30,4 @@ web/out/
 # Secrets
 .env
 .env.local
+DEMO.md
