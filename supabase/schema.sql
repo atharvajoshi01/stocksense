@@ -3,8 +3,10 @@
 -- Safe to re-run: drops in dependency order before creating.
 
 -- ---------- clean slate ----------
+-- Order matters: drop the publication and functions first, then tables with
+-- CASCADE so any dependent triggers go with them. Do NOT use DROP TRIGGER ON
+-- <table> here — that errors on a fresh DB where the table doesn't exist yet.
 drop publication if exists stocksense_realtime;
-drop trigger if exists trg_orders_anomaly on public.orders;
 drop function if exists public.detect_order_anomaly() cascade;
 drop function if exists public.set_updated_at() cascade;
 drop table if exists public.anomalies cascade;
