@@ -1,32 +1,26 @@
 import Link from "next/link";
 
 import { Section } from "@/components/Section";
-import { loadForecasts, loadInventory, loadLeaderboard, loadMeta } from "@/lib/data";
+import { SourceBadge } from "@/components/SourceBadge";
+import { loadAllForecasts, loadInventory, loadLeaderboard, loadMeta } from "@/lib/loaders";
 import { fmtPct } from "@/lib/format";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export default async function ForecastsIndex() {
-  const [forecasts, meta, leaderboard, inventory] = await Promise.all([
-    loadForecasts(),
+  const [{ panels, source }, meta, leaderboard, { rows: inventory }] = await Promise.all([
+    loadAllForecasts(),
     loadMeta(),
     loadLeaderboard(),
     loadInventory(),
   ]);
 
-  const winners = new Map<string, string>();
-  for (const lb of leaderboard) {
-    // Track best per panel from the chosen winner table — not needed; the
-    // backend already picked the winner. We surface MAPE on the row instead.
-  }
-
-  // Per-panel MAPE: average across all model results for that panel
   const panelMape = new Map<string, number>();
   for (const lb of leaderboard) {
     for (const r of lb.per_sku) {
       const key = `${r.sku_id}__${r.segment}`;
+      const m = r.mape ?? Number.POSITIVE_INFINITY;
       const prior = panelMape.get(key);
-      const m = r.mape ?? 0;
       panelMape.set(key, prior === undefined ? m : Math.min(prior, m));
     }
   }
@@ -35,11 +29,12 @@ export default async function ForecastsIndex() {
     inventory.map((r) => [`${r.sku_id}__${r.segment}`, r] as const),
   );
 
-  const rows = forecasts.map((f) => {
+  const rows = panels.map((f) => {
     const inv = inventoryByPanel.get(`${f.sku_id}__${f.segment}`);
-    const lastForecasts = f.points.filter((p) => p.forecast !== null);
-    const avgForecast =
-      lastForecasts.reduce((s, p) => s + (p.forecast ?? 0), 0) / Math.max(1, lastForecasts.length);
+    const fc = f.points.filter((p) => p.forecast !== null);
+    const avgForecast = fc.length
+      ? fc.reduce((s, p) => s + (p.forecast ?? 0), 0) / fc.length
+      : 0;
     const productName = meta.catalog.find((c) => c.sku_id === f.sku_id)?.name ?? f.sku_id;
     return {
       sku_id: f.sku_id,
@@ -53,10 +48,13 @@ export default async function ForecastsIndex() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold tracking-tight mb-2">Forecasts</h1>
+      <div className="flex items-center justify-between gap-3 mb-2">
+        <h1 className="text-3xl font-bold tracking-tight">Forecasts</h1>
+        <SourceBadge source={source} />
+      </div>
       <p className="text-zinc-400 mb-8">
-        14-day horizon per (SKU × customer segment). Best-performing model selected from a
-        walk-forward backtest.
+        14-day horizon per (SKU × customer segment). Live forecasts use an ensemble of
+        seasonal-naive and linear-trend; backtest leaderboard reflects the offline pipeline runs.
       </p>
 
       <Section title="All panels" description="Click into any SKU/segment for the chart.">
@@ -78,7 +76,7 @@ export default async function ForecastsIndex() {
                   <div className="text-xs text-zinc-400">Avg daily forecast</div>
                   <div className="text-lg tabular-nums">{row.avgForecast.toFixed(0)}</div>
                   <div className="text-xs text-zinc-500 mt-1">
-                    Best MAPE {row.mape === null ? "—" : fmtPct(row.mape)}
+                    Best MAPE {row.mape === null || !Number.isFinite(row.mape) ? "—" : fmtPct(row.mape)}
                   </div>
                 </div>
               </Link>

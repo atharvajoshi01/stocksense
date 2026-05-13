@@ -3,6 +3,8 @@ import Link from "next/link";
 import { KpiCard } from "@/components/KpiCard";
 import { Section } from "@/components/Section";
 import { RiskBadge } from "@/components/RiskBadge";
+import { RefreshedAt } from "@/components/RefreshedAt";
+import { SourceBadge } from "@/components/SourceBadge";
 import {
   loadInventory,
   loadKpis,
@@ -10,13 +12,14 @@ import {
   loadMeta,
   loadRevenueConcentration,
   loadSlowMovers,
-} from "@/lib/data";
+} from "@/lib/loaders";
 import { fmtCurrency, fmtDate, fmtNumber, fmtPct } from "@/lib/format";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default async function OverviewPage() {
-  const [meta, kpis, inventory, slowMovers, leaderboard, rev] = await Promise.all([
+  const [meta, kpis, inv, slowMovers, leaderboard, rev] = await Promise.all([
     loadMeta(),
     loadKpis(),
     loadInventory(),
@@ -24,6 +27,7 @@ export default async function OverviewPage() {
     loadLeaderboard(),
     loadRevenueConcentration(),
   ]);
+  const inventory = inv.rows;
 
   const highRiskTop = inventory
     .filter((r) => r.stockout_risk === "high")
@@ -39,15 +43,21 @@ export default async function OverviewPage() {
 
   return (
     <div>
-      <div className="flex flex-col gap-1 mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Overview</h1>
+      <div className="flex flex-col gap-1 mb-2">
+        <div className="flex items-center justify-between gap-3">
+          <h1 className="text-3xl font-bold tracking-tight">Overview</h1>
+          <div className="flex items-center gap-3">
+            <SourceBadge source={kpis.source} />
+            <RefreshedAt iso={kpis.generated_at} />
+          </div>
+        </div>
         <p className="text-zinc-400">
           {meta.n_orders.toLocaleString()} orders across {meta.n_skus} SKUs and {meta.n_segments}{" "}
           customer segments from {fmtDate(meta.start_date)} to {fmtDate(meta.end_date)}.
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 mt-6">
         <KpiCard
           label="Revenue, last 30 days"
           value={fmtCurrency(kpis.revenue_last_30d)}
@@ -64,9 +74,21 @@ export default async function OverviewPage() {
         />
         <KpiCard
           label="Forecast MAPE"
-          value={fmtPct(kpis.forecast_mape)}
-          hint={`bias ${kpis.forecast_bias > 0 ? "+" : ""}${fmtNumber(kpis.forecast_bias, { digits: 2 })} units / day`}
-          variant={kpis.forecast_mape < 0.25 ? "good" : kpis.forecast_mape < 0.35 ? "warning" : "bad"}
+          value={kpis.forecast_mape === null ? "—" : fmtPct(kpis.forecast_mape)}
+          hint={
+            kpis.forecast_bias !== undefined
+              ? `bias ${kpis.forecast_bias > 0 ? "+" : ""}${fmtNumber(kpis.forecast_bias, { digits: 2 })} units / day`
+              : undefined
+          }
+          variant={
+            kpis.forecast_mape === null
+              ? "default"
+              : kpis.forecast_mape < 0.25
+                ? "good"
+                : kpis.forecast_mape < 0.35
+                  ? "warning"
+                  : "bad"
+          }
         />
         <KpiCard
           label="High stockout risk"
@@ -111,7 +133,9 @@ export default async function OverviewPage() {
                   </td>
                   <td className="p-3 text-zinc-400">{row.segment.replace("_", " ")}</td>
                   <td className="p-3 text-right tabular-nums">{fmtNumber(row.units_on_hand)}</td>
-                  <td className="p-3 text-right tabular-nums">{row.days_of_cover.toFixed(1)}</td>
+                  <td className="p-3 text-right tabular-nums">
+                    {Number.isFinite(row.days_of_cover) ? row.days_of_cover.toFixed(1) : "∞"}
+                  </td>
                   <td className="p-3 text-right tabular-nums">{row.projected_stockout_days.toFixed(1)}</td>
                   <td className="p-3 text-right tabular-nums">{row.lead_time_days}d</td>
                   <td className="p-3 text-right">
@@ -179,7 +203,7 @@ export default async function OverviewPage() {
                   <div className="flex-1 h-2 rounded-full bg-zinc-800 overflow-hidden">
                     <div
                       className="h-2 bg-emerald-500/80"
-                      style={{ width: `${(r.share / top5[0].share) * 100}%` }}
+                      style={{ width: `${(r.share / (top5[0]?.share || 1)) * 100}%` }}
                     />
                   </div>
                   <div className="w-20 text-right tabular-nums text-zinc-300">

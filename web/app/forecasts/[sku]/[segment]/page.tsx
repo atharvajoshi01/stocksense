@@ -4,21 +4,17 @@ import { notFound } from "next/navigation";
 import { ForecastChart } from "@/components/ForecastChart";
 import { Section } from "@/components/Section";
 import { RiskBadge } from "@/components/RiskBadge";
+import { SourceBadge } from "@/components/SourceBadge";
 import {
-  loadForecasts,
+  loadForecast,
   loadInventory,
   loadLeaderboard,
   loadMeta,
   loadWinners,
-} from "@/lib/data";
+} from "@/lib/loaders";
 import { fmtNumber, fmtPct } from "@/lib/format";
 
-export const dynamic = "force-static";
-
-export async function generateStaticParams() {
-  const forecasts = await loadForecasts();
-  return forecasts.map((f) => ({ sku: f.sku_id, segment: f.segment }));
-}
+export const dynamic = "force-dynamic";
 
 export default async function ForecastDetail({
   params,
@@ -27,15 +23,14 @@ export default async function ForecastDetail({
 }) {
   const { sku, segment } = await params;
   const decodedSku = decodeURIComponent(sku);
-  const [forecasts, meta, leaderboard, inventory, winners] = await Promise.all([
-    loadForecasts(),
+  const [{ panel: series, source }, meta, leaderboard, { rows: inventory }, winners] = await Promise.all([
+    loadForecast(decodedSku, segment),
     loadMeta(),
     loadLeaderboard(),
     loadInventory(),
     loadWinners(),
   ]);
 
-  const series = forecasts.find((f) => f.sku_id === decodedSku && f.segment === segment);
   if (!series) {
     notFound();
   }
@@ -44,7 +39,6 @@ export default async function ForecastDetail({
   const inv = inventory.find((r) => r.sku_id === decodedSku && r.segment === segment);
   const winner = winners.find((w) => w.sku_id === decodedSku && w.segment === segment)?.winner;
 
-  // Per-model MAPE for this panel
   const perModelMape = leaderboard.map((lb) => {
     const row = lb.per_sku.find((r) => r.sku_id === decodedSku && r.segment === segment);
     return { name: lb.forecaster, mape: row?.mape ?? null, rmse: row?.rmse ?? null };
@@ -52,16 +46,15 @@ export default async function ForecastDetail({
 
   return (
     <div>
-      <div className="mb-2 text-sm">
+      <div className="mb-2 text-sm flex items-center justify-between">
         <Link href="/forecasts" className="text-zinc-400 hover:text-zinc-200">
           ← All forecasts
         </Link>
+        <SourceBadge source={source} />
       </div>
       <div className="flex items-end justify-between mb-8 gap-4 flex-wrap">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">
-            {skuMeta?.name ?? decodedSku}
-          </h1>
+          <h1 className="text-3xl font-bold tracking-tight">{skuMeta?.name ?? decodedSku}</h1>
           <div className="text-zinc-400 mt-1 flex items-center gap-3 text-sm">
             <span className="font-mono">{decodedSku}</span>
             <span>·</span>
@@ -80,7 +73,9 @@ export default async function ForecastDetail({
           <div className="flex items-center gap-3 text-sm text-zinc-300">
             <div className="text-right">
               <div className="text-xs uppercase tracking-wider text-zinc-400">Days of cover</div>
-              <div className="tabular-nums text-lg">{inv.days_of_cover.toFixed(1)}</div>
+              <div className="tabular-nums text-lg">
+                {Number.isFinite(inv.days_of_cover) ? inv.days_of_cover.toFixed(1) : "∞"}
+              </div>
             </div>
             <RiskBadge level={inv.stockout_risk} />
           </div>
@@ -89,7 +84,7 @@ export default async function ForecastDetail({
 
       <Section
         title="Forecast vs actuals"
-        description="Recent 120 days of orders and the next 14-day forecast with a 95% confidence band."
+        description="Recent ~90 days of orders and the next 14-day forecast with a 95% confidence band."
       >
         <div className="rounded-xl border border-zinc-800 p-4 bg-zinc-900/30">
           <ForecastChart data={series.points} />
@@ -100,9 +95,9 @@ export default async function ForecastDetail({
         <Section title="Model selection">
           <div className="rounded-xl border border-zinc-800 p-5">
             <div className="text-sm text-zinc-400">
-              Winning forecaster (selected by lowest walk-forward MAPE on this panel):
+              Best forecaster (from offline backtest):
             </div>
-            <div className="mt-2 text-xl font-semibold">{winner ?? "—"}</div>
+            <div className="mt-2 text-xl font-semibold">{winner ?? "ensemble (live)"}</div>
             <div className="mt-4 text-sm text-zinc-300 space-y-2">
               {perModelMape.map((m) => (
                 <div key={m.name} className="flex justify-between border-t border-zinc-800/60 pt-2">
@@ -124,8 +119,11 @@ export default async function ForecastDetail({
             <div className="rounded-xl border border-zinc-800 p-5">
               <dl className="text-sm divide-y divide-zinc-800/60">
                 <Row label="Units on hand" value={fmtNumber(inv.units_on_hand)} />
-                <Row label="Avg daily forecast" value={inv.avg_daily_forecast.toFixed(1)} />
-                <Row label="Days of cover" value={inv.days_of_cover.toFixed(1)} />
+                <Row label="Avg daily demand" value={inv.avg_daily_forecast.toFixed(1)} />
+                <Row
+                  label="Days of cover"
+                  value={Number.isFinite(inv.days_of_cover) ? inv.days_of_cover.toFixed(1) : "∞"}
+                />
                 <Row
                   label="Projected stockout days (14d horizon)"
                   value={inv.projected_stockout_days.toFixed(1)}

@@ -1,7 +1,7 @@
-import { loadDataQuality, loadMeta } from "@/lib/data";
+import { loadDataQuality, loadMeta } from "@/lib/loaders";
 import { fmtDate } from "@/lib/format";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export default async function DataQualityPage() {
   const [dq, meta] = await Promise.all([loadDataQuality(), loadMeta()]);
@@ -10,8 +10,8 @@ export default async function DataQualityPage() {
     <div>
       <h1 className="text-3xl font-bold tracking-tight mb-2">Data Quality</h1>
       <p className="text-zinc-400 mb-8">
-        Validators run on every pipeline pass. Failure of any check blocks the dashboard from
-        publishing stale or malformed numbers.
+        Validators run on every offline pipeline pass. Failure of any check blocks the dashboard
+        from publishing stale or malformed numbers.
       </p>
 
       <div className="rounded-xl border border-zinc-800 p-6 mb-8">

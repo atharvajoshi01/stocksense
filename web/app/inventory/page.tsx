@@ -1,13 +1,14 @@
 import Link from "next/link";
 
 import { RiskBadge } from "@/components/RiskBadge";
-import { loadInventory, loadMeta } from "@/lib/data";
+import { SourceBadge } from "@/components/SourceBadge";
+import { loadInventory, loadMeta } from "@/lib/loaders";
 import { fmtNumber } from "@/lib/format";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export default async function InventoryPage() {
-  const [inventory, meta] = await Promise.all([loadInventory(), loadMeta()]);
+  const [{ rows: inventory, source }, meta] = await Promise.all([loadInventory(), loadMeta()]);
   const byName = new Map(meta.catalog.map((c) => [c.sku_id, c.name]));
 
   const sorted = inventory.slice().sort((a, b) => {
@@ -19,9 +20,12 @@ export default async function InventoryPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold tracking-tight mb-2">Inventory</h1>
+      <div className="flex items-center justify-between gap-3 mb-2">
+        <h1 className="text-3xl font-bold tracking-tight">Inventory</h1>
+        <SourceBadge source={source} />
+      </div>
       <p className="text-zinc-400 mb-8">
-        Days of cover = on-hand units ÷ average daily forecast over the 14-day horizon. Risk is
+        Days of cover = on-hand units ÷ average daily demand over the last 30 days. Risk is
         compared against the SKU&apos;s replenishment lead time.
       </p>
 
@@ -55,7 +59,9 @@ export default async function InventoryPage() {
                 <td className="p-3 text-zinc-400 capitalize">{row.segment.replace("_", " ")}</td>
                 <td className="p-3 text-right tabular-nums">{fmtNumber(row.units_on_hand)}</td>
                 <td className="p-3 text-right tabular-nums">{row.avg_daily_forecast.toFixed(1)}</td>
-                <td className="p-3 text-right tabular-nums">{row.days_of_cover.toFixed(1)}</td>
+                <td className="p-3 text-right tabular-nums">
+                  {Number.isFinite(row.days_of_cover) ? row.days_of_cover.toFixed(1) : "∞"}
+                </td>
                 <td className="p-3 text-right tabular-nums">{row.projected_stockout_days.toFixed(1)}</td>
                 <td className="p-3 text-right tabular-nums">{row.lead_time_days}d</td>
                 <td className="p-3 text-right">

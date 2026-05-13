@@ -12,7 +12,18 @@ gloves, wraps, containers, cutlery, portion cups, and exam supplies. It produces
 forecasts, surfaces stockout risk before it happens, flags demand anomalies, and tracks data
 quality on every run.
 
-Live dashboard: <https://stocksense.vercel.app> *(deployed when GitHub repo is connected)*
+Live dashboard: <https://stocksense-ajoshs-projects.vercel.app/>
+
+The dashboard runs in two modes:
+
+- **Snapshot mode** (default, no setup): reads pre-computed JSON artifacts
+  produced by the offline Python pipeline. Useful for a fully reproducible
+  demo with zero external dependencies.
+- **Live mode**: backs the same dashboard with a Supabase Postgres database,
+  exposes write APIs, accepts new orders / inventory updates / CSV uploads
+  through the **Input** page, and pushes realtime updates over WebSockets.
+
+See [`SUPABASE.md`](./SUPABASE.md) for the 10-minute live-mode setup.
 
 ---
 
@@ -30,6 +41,9 @@ Live dashboard: <https://stocksense.vercel.app> *(deployed when GitHub repo is c
 | Tiny DAG orchestrator     | `pipeline/stocksense/orchestrator.py` — topo-sort + cycle detection, no Airflow infra needed |
 | JSON export for the web   | `pipeline/stocksense/export.py` |
 | Next.js + Recharts UI     | `web/` — dark-mode dashboard with KPI cards, leaderboard, per-SKU forecast charts with 95% bands, anomaly timeline, inventory table, data-quality view |
+| Live data layer           | `web/lib/supabase.ts`, `web/lib/loaders.ts` — Supabase reads with snapshot fallback; `web/app/api/*` write routes with service-role |
+| Realtime + input          | `web/components/LiveIndicator.tsx`, `web/app/input/page.tsx` — websocket subscription with toast on order/anomaly; forms + CSV bulk upload |
+| Database schema           | `supabase/schema.sql` — tables, RLS, indexes, anomaly trigger, realtime publication |
 | CI                        | `.github/workflows/ci.yml` — ruff lint, pytest, full pipeline smoke, Next.js build |
 
 ## Architecture

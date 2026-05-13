@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-import { loadLeaderboard, loadWinners } from "@/lib/data";
+import { loadLeaderboard, loadWinners } from "@/lib/loaders";
 import { fmtPct } from "@/lib/format";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export default async function LeaderboardPage() {
   const [leaderboard, winners] = await Promise.all([loadLeaderboard(), loadWinners()]);
@@ -18,7 +18,7 @@ export default async function LeaderboardPage() {
       <h1 className="text-3xl font-bold tracking-tight mb-2">Models</h1>
       <p className="text-zinc-400 mb-8">
         Walk-forward backtest results (3 folds, 14-day forecast horizon). Lower MAPE is better;
-        bias near zero is better.
+        bias near zero is better. Computed by the offline Python pipeline.
       </p>
 
       <div className="grid md:grid-cols-2 gap-4 mb-10">

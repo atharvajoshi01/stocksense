@@ -1,25 +1,26 @@
 import Link from "next/link";
 
-import { loadAnomalies, loadMeta } from "@/lib/data";
+import { SourceBadge } from "@/components/SourceBadge";
+import { loadAnomalies, loadMeta } from "@/lib/loaders";
 import { fmtDate } from "@/lib/format";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export default async function AnomaliesPage() {
-  const [anoms, meta] = await Promise.all([loadAnomalies(), loadMeta()]);
+  const [{ rows, source }, meta] = await Promise.all([loadAnomalies(), loadMeta()]);
   const byName = new Map(meta.catalog.map((c) => [c.sku_id, c.name]));
 
-  const sorted = anoms
-    .slice()
-    .sort((a, b) => Math.abs(b.z) - Math.abs(a.z))
-    .slice(0, 200);
+  const sorted = rows.slice().sort((a, b) => Math.abs(b.z) - Math.abs(a.z)).slice(0, 200);
 
   return (
     <div>
-      <h1 className="text-3xl font-bold tracking-tight mb-2">Anomalies</h1>
+      <div className="flex items-center justify-between gap-3 mb-2">
+        <h1 className="text-3xl font-bold tracking-tight">Anomalies</h1>
+        <SourceBadge source={source} />
+      </div>
       <p className="text-zinc-400 mb-8">
-        Dates where the order volume residual relative to a seasonal-naive baseline exceeds 2.5 σ
-        on a 14-day rolling window. Top 200 flagged events ranked by absolute z-score.
+        Dates where the order volume residual relative to a 14-day rolling mean exceeds 2.5σ.
+        Top 200 events ranked by absolute z-score.
       </p>
 
       <div className="rounded-xl border border-zinc-800 overflow-hidden">
