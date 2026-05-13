@@ -76,7 +76,9 @@ create table public.anomalies (
   detected_at timestamptz not null default now(),
   order_date date not null,
   anomaly_type text not null check (anomaly_type in ('surge','shortfall')),
-  severity numeric(6,3) not null,
+  -- severity is the z-score; allow up to 9999.999 so unusually large orders
+  -- (think backfills or correction inserts) don't overflow the column
+  severity numeric(10,3) not null,
   description text
 );
 create index anomalies_recent_idx on public.anomalies (detected_at desc);
